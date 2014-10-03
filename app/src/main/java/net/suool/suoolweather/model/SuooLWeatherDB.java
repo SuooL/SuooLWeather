@@ -66,7 +66,7 @@ public class SuooLWeatherDB {
      * 从数据库读取全国各省份信息
      *
      */
-    public List<Province> loadProvince() {
+    public List<Province> loadProvinces() {
         List<Province> list = new ArrayList<Province>();
         Cursor cursor = db.query("Province", null,
                                 null, null, null, null, null);
@@ -151,7 +151,7 @@ public class SuooLWeatherDB {
         }
         return  list;
     }
-    
+
 
 
 
