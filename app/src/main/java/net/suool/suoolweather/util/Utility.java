@@ -1,37 +1,33 @@
 package net.suool.suoolweather.util;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 
+import net.suool.suoolweather.db.SuooLWeatherDB;
 import net.suool.suoolweather.model.City;
 import net.suool.suoolweather.model.County;
 import net.suool.suoolweather.model.Province;
-import net.suool.suoolweather.model.SuooLWeatherDB;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
-
-/**
- * Created by SuooL on 2014/10/4.
- */
 public class Utility {
-    /**
-     * 解析和处理服务器返回的省级信息数据
-     */
 
-    public synchronized static boolean handleProvincesResponse (SuooLWeatherDB suooLWeatherDB,
-                                                                String response) {
+    /**
+     * 解析和处理服务器返回的省级数据
+     */
+    public synchronized static boolean handleProvincesResponse(
+            SuooLWeatherDB suooLWeatherDB, String response) {
         if (!TextUtils.isEmpty(response)) {
-            String[] allProvince = response.split(",");
-            if (allProvince != null && allProvince.length >0) {
-                for (String p : allProvince) {
+            String[] allProvinces = response.split(",");
+            if (allProvinces != null && allProvinces.length > 0) {
+                for (String p : allProvinces) {
                     String[] array = p.split("\\|");
                     Province province = new Province();
                     province.setProvinceCode(array[0]);
@@ -41,9 +37,8 @@ public class Utility {
                 }
                 return true;
             }
-
         }
-        return  false;
+        return false;
     }
 
     /**
@@ -72,7 +67,7 @@ public class Utility {
     /**
      * 解析和处理服务器返回的县级数据
      */
-    public static boolean handleCountiesResponse(SuooLWeatherDB suooLWeatherDB,
+    public static boolean handleCountiesResponse(SuooLWeatherDB coolWeatherDB,
                                                  String response, int cityId) {
         if (!TextUtils.isEmpty(response)) {
             String[] allCounties = response.split(",");
@@ -84,7 +79,7 @@ public class Utility {
                     county.setCountyName(array[1]);
                     county.setCityId(cityId);
                     // 将解析出来的数据存储到County表
-                    suooLWeatherDB.saveCounty(county);
+                    coolWeatherDB.saveCounty(county);
                 }
                 return true;
             }
@@ -131,4 +126,5 @@ public class Utility {
         editor.putString("current_date", sdf.format(new Date()));
         editor.commit();
     }
+
 }

@@ -4,9 +4,13 @@ package net.suool.suoolweather.model;
  * Created by SuooL on 2014/10/3.
  */
 public class County {
+
     private int id;
+
     private String countyName;
+
     private String countyCode;
+
     private int cityId;
 
     public int getId() {
@@ -40,4 +44,5 @@ public class County {
     public void setCityId(int cityId) {
         this.cityId = cityId;
     }
+
 }

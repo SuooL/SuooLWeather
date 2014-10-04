@@ -16,13 +16,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import net.suool.suoolweather.R;
+import net.suool.suoolweather.db.SuooLWeatherDB;
+import net.suool.suoolweather.db.SuooLWeatherOpenHelper;
 import net.suool.suoolweather.model.City;
 import net.suool.suoolweather.model.County;
 import net.suool.suoolweather.model.Province;
-import net.suool.suoolweather.model.SuooLWeatherDB;
 import net.suool.suoolweather.util.HttpCallbackListener;
 import net.suool.suoolweather.util.HttpUtil;
 import net.suool.suoolweather.util.Utility;
+import net.youmi.android.AdManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +66,7 @@ public class ChooseAreaActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AdManager.getInstance(this).init("52d1d2dd34cd5793", "84564f5d7b89e238", false);
         isFromWeatherActivity = getIntent().getBooleanExtra("from_weather_activity", false);
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
         if (prefs.getBoolean("city_selected", false) && !isFromWeatherActivity) {
@@ -159,6 +162,7 @@ public class ChooseAreaActivity extends Activity {
     }
 
     /**
+     *
      * 根据传入的代号和类型从服务器上查询省市县数据。
      */
     private void queryFromServer(final String code, final String type) {

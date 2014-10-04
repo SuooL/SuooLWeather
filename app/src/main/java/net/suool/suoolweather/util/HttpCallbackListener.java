@@ -6,7 +6,8 @@ package net.suool.suoolweather.util;
  */
 public interface HttpCallbackListener {
 
-    void  onFinish (String response);
+    void onFinish(String response);
 
-    void onError (Exception e);
+    void onError(Exception e);
+
 }
