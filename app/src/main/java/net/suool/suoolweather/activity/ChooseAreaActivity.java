@@ -116,7 +116,7 @@ public class ChooseAreaActivity extends Activity {
             }
             adapter.notifyDataSetChanged();
             listView.setSelection(0);
-            titleText.setText("中国");
+            titleText.setText("天朝");
             currentLevel = LEVEL_PROVINCE;
         } else {
             queryFromServer(null, "province");
