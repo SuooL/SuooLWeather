@@ -18,9 +18,9 @@ SuooLWeather
 
 ## 预览
 
-![SuooLWeather](https://github.com/SuooL/SuooLWeather/master/art/1.jpg)
-![SuooLWeather](https://github.com/SuooL/SuooLWeather/master/art/2.jpg)
-![SuooLWeather](https://github.com/SuooL/SuooLWeather/master/art/3.jpg)
+<br>![SuooLWeather](https://github.com/SuooL/SuooLWeather/blob/master/art/1.jpg)
+<br>![SuooLWeather](https://github.com/SuooL/SuooLWeather/blob/master/art/2.jpg)
+<br>![SuooLWeather](https://github.com/SuooL/SuooLWeather/blob/master/art/3.jpg)
 
 ## 开发工具
 
